@@ -1,18 +1,73 @@
 <!DOCTYPE HTML>
   <head>
-    <title></title>
+    <title>Pizza Menu</title>
 
     <!-- MDL Inclusions -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
+    <style>
+    .demo-list-item {
+      width: 300px;
+    }
+	
+    .demo-list-radio {
+      display: inline;
+    }
+	
+	.demo-list-header {
+	  font-size: 18pt;
+	}
+    </style>
+	
   </head>
 
   <body>
   
     <form name="myForm" action="handler.php" method="POST">
-          
+
+      <!-- mdl list : pizza-size -->
+      <div>
+        <h3 class="demo-list-header">Pizza Size</h3>
+        
+        <ul class="demo-list-item mdl-list">
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              Large
+            </span>
+            <span class="mdl-list__item-secondary-action">
+              <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-size-large">
+                <input type="radio" id="list-size-large" class="mdl-radio__button"  name="pizza-size"  value="1" checked />
+              </label>
+            </span>
+          </li>
+
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              Extra Large
+            </span>
+            <span class="mdl-list__item-secondary-action">
+              <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-size-xlarge">
+                <input type="radio" id="list-size-xlarge" class="mdl-radio__button" name="pizza-size" value="2" />
+              </label>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- mdl slide : pizza-topping -->	  
+	  <p style="width:300px">
+	    <h3 class="demo-list-header">Pizza Toppings</h3>
+		
+		<input class="mdl-slider mdl-js-slider" type="range" id="topping" name="pizza-topping" min="1" max="4" value="1" step="1">
+      </p>
+	  
+	  <!-- Accent-colored raised button with ripple -->
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+        Submit
+      </button>
+
     </form>
 
   </body>
