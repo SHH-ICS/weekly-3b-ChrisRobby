@@ -16,6 +16,7 @@
 
     $subTotal = 0.0;
     $pizzaSize = "";
+	$pizzaName = "";
     if ( isset( $_POST['pizza-size'] ) ){
       $pizzaSize = $_POST['pizza-size'];
     }
@@ -25,19 +26,32 @@
     }
 
     if( $pizzaSize == 1 ){
+      $pizzaName = "large";
       $subTotal += 6.0;
     }
     elseif ( $pizzaSize == 2 ){
+      $pizzaName = "extra large";
       $subTotal += 10.0;
     }
 
+    if( $pizzaTopping == 1 ){
+      $subTotal += 1.00;
+    }
+    elseif ( $pizzaTopping == 2 ){
+      $subTotal += 1.75;
+    }
+    elseif ( $pizzaTopping == 3 ){
+      $subTotal += 2.50;
+    }
+    elseif ( $pizzaTopping == 4 ){
+      $subTotal += 3.35;
+    }
 
     $tax = calcTax($subTotal);
     $total = $subTotal + $tax;
 
-    echo "<h1>My Pizza</h1>\n";
-    echo "<p>My Pizza Size is = ".$pizzaSize."</p>\n";
-    echo "<p>My Pizza Toppings is = ".$pizzaTopping."</p>\n";
+    echo "<h1>My Pizza Order</h1>\n";
+    echo "<p>One ".$pizzaName." pizza with ".$pizzaTopping." toppings</p>\n";
 
     echo "<p>Subtotal: $".$subTotal."</p>\n";
     echo "<p>HST: $".$tax."</p>\n";
